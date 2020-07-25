@@ -30,6 +30,6 @@ class HomeController extends Controller
 //                    $column->append(Dashboard::dependencies());
 //                });
 //            });
-        return '欢迎登陆悟空测评内部系统';
+        return $content->body('欢迎登陆悟空测评内部系统');
     }
 }

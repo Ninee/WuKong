@@ -10,6 +10,7 @@
         "encore/laravel-admin": "^1.6",
         "fideloper/proxy": "~3.3",
         "ichynul/iframe-tabs": "^1.1",
+        "intervention/image": "^2.5",
         "james.xue/login-captcha-username": "^1.2",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",

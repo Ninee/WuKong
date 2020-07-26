@@ -31,6 +31,8 @@ class ProductController extends AdminController
         $grid->actions(function ($actions) {
 //            $actions->disableDelete();
             $actions->disableView();
+            $cardBtn = '<a target="_blank" class="btn btn-default btn-xs" href="' . admin_url('card') . '/' . $actions->getKey() . '"><i class="fa fa-image"></i>生成图片&nbsp;</a>';
+            $actions->append($cardBtn);
         });
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();

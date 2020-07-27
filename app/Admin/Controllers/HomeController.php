@@ -42,38 +42,46 @@ class HomeController extends Controller
 //        dd(storage_path('app/public/' . $product->main));
         $main = Image::make(storage_path('app/public/' . $product->main));
 
+        $resize = $main->resize(null, 400, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $bg = Image::canvas(650, 600, '#ffffff');
+
         $radio = $main->width() / 1500;
-        $fontSize = 50 * $radio;
 
-        $main->text('$' . $product->price, 60, 60 * $radio, function($font) use ($fontSize) {
+        $fontSize = 26;
+        $color = '#000000';
+
+        $bg->insert($resize);
+        $bg->text($product->name . '$' . $product->price, 30, 410, function($font) use ($fontSize, $color) {
             $font->file(public_path('font/AdobeHeitiStd-Regular.otf'));
             $font->size($fontSize);
-            $font->color('#c54f67');
+            $font->color($color);
             $font->align('left');
             $font->valign('top');
         });
-        $main->text('keyword: ' . $product->keyword, 60, 120 * $radio, function($font) use ($fontSize) {
+        $bg->text('Keyword: ' . $product->keyword, 30, 450, function($font) use ($fontSize, $color) {
             $font->file(public_path('font/AdobeHeitiStd-Regular.otf'));
             $font->size($fontSize);
-            $font->color('#c54f67');
+            $font->color($color);
             $font->align('left');
             $font->valign('top');
         });
-        $main->text('shop: ' . $product->shop, 60, 180 * $radio, function($font) use ($fontSize) {
+        $bg->text('Shop: ' . $product->shop, 30, 490, function($font) use ($fontSize, $color) {
             $font->file(public_path('font/AdobeHeitiStd-Regular.otf'));
             $font->size($fontSize);
-            $font->color('#c54f67');
+            $font->color($color);
             $font->align('left');
             $font->valign('top');
         });
-        $main->text($product->remark, 60, 240 * $radio, function($font) use ($fontSize) {
+        $bg->text($product->remark, 30, 540, function($font) use ($fontSize, $color) {
             $font->file(public_path('font/AdobeHeitiStd-Regular.otf'));
             $font->size($fontSize);
-            $font->color('#c54f67');
+            $font->color($color);
             $font->align('left');
             $font->valign('top');
         });
 
-        return $main->response('jpg');
+        return $bg->response('jpg');
     }
 }

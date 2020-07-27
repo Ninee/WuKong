@@ -60,6 +60,7 @@ class OrderController extends AdminController
         $grid->column('nickname', __('微信昵称'));
         $grid->column('wechat', __('微信号'));
         $grid->column('profile', __('个人主页'))->image();
+        $grid->column('screenshot', __('订单截图'))->image();
         $grid->column('status', __('状态'))->using([
             1 => '进行中',
             2 => '完成',
@@ -109,7 +110,8 @@ class OrderController extends AdminController
         $form->text('order_sn', __('订单号'));
         $form->text('nickname', __('微信昵称'));
         $form->text('wechat', __('微信号'));
-        $form->image('profile', __('个人主页截图'));
+        $form->image('profile', __('个人主页截图'))->uniqueName();
+        $form->image('screenshot', __('订单截图'))->uniqueName();
         $form->radio('status', __('状态'))->options([
             1 => '进行中',
             2 => '完成',

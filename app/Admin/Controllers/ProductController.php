@@ -100,8 +100,8 @@ class ProductController extends AdminController
         $form->text('shop', __('店铺名'));
         $form->text('keyword', __('关键词'));
         $form->number('keyword_page', __('关键词所在页数'));
-        $form->image('main', __('主图'));
-        $form->image('share_img', __('分享图'));
+        $form->image('main', __('主图'))->uniqueName();
+        $form->image('share_img', __('分享图'))->uniqueName();
         $form->number('amount', __('销量单'));
         $form->number('review_amount', __('Review单'));
         $form->textarea('remark', __('备注'));

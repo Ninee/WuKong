@@ -45,11 +45,11 @@ class HomeController extends Controller
         $resize = $main->resize(null, 400, function ($constraint) {
             $constraint->aspectRatio();
         });
-        $bg = Image::canvas(650, 600, '#ffffff');
+        $bg = Image::canvas(750, 600, '#ffffff');
 
         $radio = $main->width() / 1500;
 
-        $fontSize = 26;
+        $fontSize = 24;
         $color = '#000000';
 
         $bg->insert($resize);

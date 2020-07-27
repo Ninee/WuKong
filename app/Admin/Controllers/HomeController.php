@@ -60,23 +60,31 @@ class HomeController extends Controller
             $font->align('left');
             $font->valign('top');
         });
-        $bg->text('Keyword: ' . $product->keyword . ',在第' . $product->keyword_page . '页', 30, 450, function($font) use ($fontSize, $color) {
+        $bg->text('Keyword: ' . $product->keyword, 30, 450, function($font) use ($fontSize, $color) {
             $font->file(public_path('font/AdobeHeitiStd-Regular.otf'));
             $font->size($fontSize);
             $font->color($color);
             $font->align('left');
             $font->valign('top');
         });
-        $bg->text('Shop: ' . $product->shop, 30, 490, function($font) use ($fontSize, $color) {
+        $bg->text('在搜索结果第' . $product->keyword_page . '页', 30, 490, function($font) use ($fontSize, $color) {
             $font->file(public_path('font/AdobeHeitiStd-Regular.otf'));
             $font->size($fontSize);
             $font->color($color);
             $font->align('left');
             $font->valign('top');
         });
-        $bg->text($product->remark, 30, 540, function($font) use ($fontSize, $color) {
+
+        $bg->text('Shop: ' . $product->shop, 30, 530, function($font) use ($fontSize, $color) {
             $font->file(public_path('font/AdobeHeitiStd-Regular.otf'));
             $font->size($fontSize);
+            $font->color($color);
+            $font->align('left');
+            $font->valign('top');
+        });
+        $bg->text($product->remark, 30, 570, function($font) use ($fontSize, $color) {
+            $font->file(public_path('font/AdobeHeitiStd-Regular.otf'));
+            $font->size(22);
             $font->color($color);
             $font->align('left');
             $font->valign('top');

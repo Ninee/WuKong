@@ -47,6 +47,7 @@ class ProductController extends AdminController
         $grid->column('remark', __('备注'));
         $grid->column('amount', __('销量单数量'))->width(60);
         $grid->column('review_amount', __('Review单数量'))->width(80);
+        $grid->column('pay_type', __('付款方式'))->using(Product::PAY_TYPE)->width(80);
         $grid->column('status', __('状态'))->using([
         1 => '正常',
         2 => '冻结',
@@ -103,6 +104,7 @@ class ProductController extends AdminController
         $form->textarea('remark', __('备注'));
         $form->text('seller', __('商家'));
         $form->text('receiver', __('对接人'));
+        $form->radio('pay_type', __('付款方式'))->options(Product::PAY_TYPE)->default(1);
         $form->radio('status', __('状态'))->options([1 => '正常', '2' => '冻结'])->default(1);
         return $form;
     }

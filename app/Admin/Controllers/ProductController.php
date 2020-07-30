@@ -47,6 +47,7 @@ class ProductController extends AdminController
         $grid->column('main', __('主图'))->image();
 //        $grid->column('share_img', __('分享图'))->image();
         $grid->column('remark', __('备注'));
+        $grid->column('operation', __('特殊操作要求'));
         $grid->column('amount', __('销量单数量'))->width(60);
         $grid->column('review_amount', __('Review单数量'))->width(80);
         $grid->column('pay_type', __('付款方式'))->using(Product::PAY_TYPE)->width(80);
@@ -104,7 +105,8 @@ class ProductController extends AdminController
 //        $form->image('share_img', __('分享图'))->uniqueName();
         $form->number('amount', __('销量单'));
         $form->number('review_amount', __('Review单'));
-        $form->textarea('remark', __('备注'));
+        $form->text('remark', __('备注'));
+        $form->textarea('operation', __('特殊操作要求'));
         $form->text('seller', __('商家'));
         $form->text('receiver', __('对接人'));
         $form->radio('pay_type', __('付款方式'))->options(Product::PAY_TYPE)->default(1);
